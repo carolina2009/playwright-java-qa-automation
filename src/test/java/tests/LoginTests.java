@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.junit.jupiter.api.Test;
+import pages.LoginPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,26 +10,24 @@ public class LoginTests extends BaseTest {
 
     @Test
     void validUserShouldLoginSuccessfully() {
-        page.navigate("https://the-internet.herokuapp.com/login");
+        LoginPage loginPage = new LoginPage(page);
 
-        page.locator("#username").fill("tomsmith");
-        page.locator("#password").fill("SuperSecretPassword!");
-        page.locator("button[type='submit']").click();
+        loginPage.navigateToLoginPage();
+        loginPage.login("tomsmith", "SuperSecretPassword!");
 
-        String successMessage = page.locator("#flash").innerText();
+        String successMessage = loginPage.getFlashMessage();
 
         assertTrue(successMessage.contains("You logged into a secure area!"));
     }
 
     @Test
     void invalidUserShouldSeeErrorMessage() {
-        page.navigate("https://the-internet.herokuapp.com/login");
+        LoginPage loginPage = new LoginPage(page);
 
-        page.locator("#username").fill("wrongUser");
-        page.locator("#password").fill("wrongPassword");
-        page.locator("button[type='submit']").click();
+        loginPage.navigateToLoginPage();
+        loginPage.login("wrongUser", "wrongPassword");
 
-        String errorMessage = page.locator("#flash").innerText();
+        String errorMessage = loginPage.getFlashMessage();
 
         assertTrue(errorMessage.contains("Your username is invalid!"));
     }
