@@ -64,4 +64,16 @@ public class PlaywrightBasicsTests extends BaseTest {
 
         assertTrue(message.contains("You logged into a secure area!"));
     }
+    @Test
+    void invalidLoginShouldShowErrorMessage() {
+        page.navigate("https://the-internet.herokuapp.com/login");
+
+        page.locator("#username").fill("invalidUser");
+        page.locator("#password").fill("invalidPassword");
+        page.locator("button[type='submit']").click();
+
+        String errorMessage = page.locator("#flash").innerText();
+
+        assertTrue(errorMessage.contains("Your username is invalid!"));
+    }
 }

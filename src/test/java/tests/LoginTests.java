@@ -31,4 +31,5 @@ public class LoginTests extends BaseTest {
 
         assertTrue(errorMessage.contains("Your username is invalid!"));
     }
+
 }
