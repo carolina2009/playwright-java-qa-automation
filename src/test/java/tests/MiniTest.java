@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import static com.microsoft.playwright.Page.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import java.nio.file.Paths;
+
+
 
 public class MiniTest extends BaseTest {
 
@@ -20,9 +23,17 @@ public void loginTest() {
     page.locator("#password").fill("Password123");
     page.locator("#submit").click();
 
-    assertTrue(page.locator("text=Logged In successfully").isVisible());
+    page.waitForURL("**/logged-in-successfully/");
+    page.locator("text=Logged In Successfully").waitFor();
+
+    assertTrue(page.locator("text=Logged In Successfully").isVisible());
+    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshots/loginSuccess.png")));
     }
+
+
+
 @Test
+
     public void LoginFailedTest() {
     page.navigate("https://practicetestautomation.com/practice-test-login/");
 
@@ -33,6 +44,7 @@ public void loginTest() {
     String actualMessage=page.locator("#error").textContent();
 
     assertEquals("Your password is invalid!",actualMessage);
+    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("LoginFailed.png")));
 }
 @Test
     public void checkboxTest() {
@@ -46,10 +58,27 @@ public void loginTest() {
 
 
    assertTrue(checkbox1.isChecked());
+    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("Checkbox1.png")));
    assertFalse(checkbox2.isChecked());
+    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("Checkbox2.png")));
 
 }
+@Test
 
+    public void dropdownTest(){
+
+    page.navigate("https://the-internet.herokuapp.com/dropdown");
+
+    page.locator("#dropdown").selectOption("1");
+
+
+    String selectedValue = page.locator("#dropdown").inputValue();
+
+    assertEquals("1", selectedValue);
+    page.waitForTimeout(1000);
+    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("Dropdown.png")));
+
+}
 }
 
 
