@@ -1,12 +1,13 @@
 package pages;
 
 import com.microsoft.playwright.Page;
+import config.TestConfig;
 
 public class LoginPage {
 
     private final Page page;
 
-    private final String loginUrl = "https://the-internet.herokuapp.com/login";
+    private final String loginUrl =TestConfig.LOGIN_URL;
     private final String usernameInput = "#username";
     private final String passwordInput = "#password";
     private final String loginButton = "button[type='submit']";
