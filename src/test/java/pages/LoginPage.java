@@ -20,13 +20,29 @@ public class LoginPage {
         page.navigate(loginUrl);
     }
 
-    public void login(String username, String password) {
+    public void enterUsername(String username) {
         page.locator(usernameInput).fill(username);
+    }
+
+    public void enterPassword(String password) {
         page.locator(passwordInput).fill(password);
+    }
+
+    public void clickLoginButton() {
         page.locator(loginButton).click();
+    }
+
+    public void login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        clickLoginButton();
     }
 
     public String getFlashMessage() {
         return page.locator(flashMessage).innerText();
+    }
+
+    public boolean isFlashMessageVisible() {
+        return page.locator(flashMessage).isVisible();
     }
 }
