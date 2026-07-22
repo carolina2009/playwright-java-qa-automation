@@ -1,4 +1,4 @@
-package tests;
+package practice;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;

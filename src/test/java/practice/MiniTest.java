@@ -1,11 +1,10 @@
-package tests;
+package practice;
 
 import base.BaseTest;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
 
-import static com.microsoft.playwright.Page.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import java.nio.file.Paths;
