@@ -1,5 +1,6 @@
 package tests;
 
+import data.LoginTestData;
 import base.BaseTest;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -14,9 +15,9 @@ public class LoginPageObjectTest extends BaseTest {
         LoginPage loginPage = new LoginPage(page);
 
         loginPage.navigateToLoginPage();
-        loginPage.login("tomsmith", "SuperSecretPassword!");
+        loginPage.login(LoginTestData.VALID_USERNAME, LoginTestData.VALID_PASSWORD);
 
-        assertTrue(loginPage.getFlashMessage().contains("You logged into a secure area!"));
+        assertTrue(loginPage.getFlashMessage().contains(LoginTestData.SUCCESS_LOGIN_MESSAGE));
     }
 
     @Test
@@ -24,8 +25,8 @@ public class LoginPageObjectTest extends BaseTest {
         LoginPage loginPage = new LoginPage(page);
 
         loginPage.navigateToLoginPage();
-        loginPage.login("tomsmith", "WrongPassword");
+        loginPage.login(LoginTestData.VALID_USERNAME, LoginTestData.INVALID_PASSWORD);
 
-        assertTrue(loginPage.getFlashMessage().contains("Your password is invalid!"));
+        assertTrue(loginPage.getFlashMessage().contains(LoginTestData.INVALID_PASSWORD_MESSAGE));
     }
 }
