@@ -1,141 +1,110 @@
-# playwright-java-qa-automation
+# Playwright Java QA Automation
 
 QA Automation practice project using Playwright with Java, Maven, JUnit 5, Git, and GitHub.
 
 
-
-\# Playwright Java QA Automation
-
-
-
-This repository contains a QA automation practice project using \*\*Playwright with Java\*\*, \*\*Maven\*\*, \*\*JUnit 5\*\*, \*\*Git\*\*, and \*\*GitHub\*\*.
-
-
-
-\## About this project
-
-
+## About this project
 
 The goal of this project is to practice web UI automation and build a professional QA Automation portfolio project.
-
-
 
 As a QA Engineer with experience in manual testing and API testing, this project helps me strengthen my automation skills by converting manual test scenarios into automated tests.
 
 
-
 \## Technologies used
 
+- Java 21
 
+- Maven
 
-\- Java 21
+- Playwright
 
-\- Maven
+- JUnit 5
 
-\- Playwright
+- Git
 
-\- JUnit 5
+- GitHub
 
-\- Git
-
-\- GitHub
-
-\- IntelliJ IDEA
+- IntelliJ IDEA
 
 
 
 \## What this project covers
 
+- Basic Playwright actions
 
+- Browser navigation
 
-\- Basic Playwright actions
+- Locators
 
-\- Browser navigation
+- Form filling
 
-\- Locators
+- Button clicks
 
-\- Form filling
+- Text validation
 
-\- Button clicks
+- Login scenarios
 
-\- Text validation
+- Positive and negative testing
 
-\- Login scenarios
+- UI interactions
 
-\- Positive and negative testing
+- Checkboxes
 
-\- UI interactions
+- Dropdowns
 
-\- Checkboxes
+- JavaScript alerts
 
-\- Dropdowns
+- Data-driven testing
 
-\- JavaScript alerts
+- Page Object Model
 
-\- Data-driven testing
-
-\- Page Object Model
-
-\- Base test setup
+- Base test setup
 
 
 
 \## Project structure
 
-
-
 ```text
 
-src/test/java
-
-├── base
-
-│   └── BaseTest.java
-
-├── pages
-
-│   └── LoginPage.java
-
-└── tests
-
-&#x20;   ├── FirstTest.java
-
-&#x20;   ├── LoginTests.java
-
-&#x20;   ├── PlaywrightBasicsTests.java
-
-&#x20;   ├── UIInteractionsTests.java
-
-&#x20;   └── DataDrivenLoginTests.java
-
+src
+└── test
+    └── java
+        ├── base
+        │   └── BaseTest.java
+        ├── config
+        │   └── TestConfig.java
+        ├── data
+        │   └── LoginTestData.java
+        ├── pages
+        │   └── LoginPage.java
+        ├── practice
+        │   ├── FirstTest.java
+        │   ├── LoginTests.java
+        │   ├── MiniTest.java
+        │   └── PlaywrightBasicsTests.java
+        └── tests
+            ├── AssertionsTest.java
+            ├── DataDrivenLoginTests.java
+            ├── LoginPageObjectTest.java
+            ├── ScreenshotTest.java
+            ├── TraceViewerTest.java
+            └── UIInteractionsTests.java
 
 
 
 
 Test scenarios documentation
 
-
-
 Test scenarios are documented here:
-
-
-
 docs/test-scenarios.md
 
 
 
 How to run the tests
-
-
-
 From the project root folder, run:
-
 mvn test
 
-
-
 To clean previous build files and run tests:
-
 mvn clean test
 
 
@@ -150,15 +119,11 @@ This project uses the Page Object Model pattern to keep test code cleaner, reusa
 
 Example:
 
-
-
 LoginPage.java contains login page locators and actions.
 
 LoginTests.java contains test validations.
 
 BaseTest.java contains browser setup and teardown.
-
-
 
 
 
@@ -191,3 +156,4 @@ Author
 Carolina Aguilera
 
 Senior QA Engineer | Manual Testing | API Testing | Agile | CI/CD | Learning QA Automation
+
