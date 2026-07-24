@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginPageObjectTest extends BaseTest {
 
     @Test
-    public void successfulLoginUsingPageObjectTest() {
+    public void shouldLoginSuccessfullyWithValidCredentials() {
         LoginPage loginPage = new LoginPage(page);
 
         loginPage.navigateToLoginPage();
@@ -21,7 +21,7 @@ public class LoginPageObjectTest extends BaseTest {
     }
 
     @Test
-    public void failedLoginUsingPageObjectTest() {
+    public void shouldShowErrorMessageWithInvalidPassword() {
         LoginPage loginPage = new LoginPage(page);
 
         loginPage.navigateToLoginPage();
